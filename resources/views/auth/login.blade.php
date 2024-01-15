@@ -7,7 +7,7 @@
     <div class="flex flex-col lg:flex-row gap-20 justify-center items-center">
         <img src="{{asset('img/logo_without_text.png')}}" class="w-[360px] h-[200px]" alt="Balen">
 
-        <div class="bg-[#879EA6] rounded-md p-10">
+        <div class="bg-[#879EA6] rounded-2xl p-10">
             <h1 class="text-3xl font-bold mb-6 text-center">Member Login</h1>
             <form method="POST" action="{{ route('login') }}">
                 @csrf
@@ -33,7 +33,7 @@
 
                 <div class="flex justify-center mt-8">
                     <x-primary-button>
-                        {{ __('Log in') }}
+                        {{ __('LOGIN') }}
                     </x-primary-button>
                 </div>
             </form>
