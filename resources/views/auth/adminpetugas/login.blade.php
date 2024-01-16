@@ -1,5 +1,5 @@
 <x-guest-layout>
-    <x-slot name="title">Member Login</x-slot>
+    <x-slot name="title">Admin Login</x-slot>
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')"/>
 
@@ -8,14 +8,14 @@
         <img src="{{asset('img/logo_without_text.png')}}" class="w-[360px] h-[200px]" alt="Balen">
 
         <div class="bg-[#879EA6] rounded-2xl p-10">
-            <h1 class="text-3xl font-bold mb-6 text-center">Member Login</h1>
+            <h1 class="text-3xl font-bold mb-6 text-center">Admin Login</h1>
             <form method="POST" action="{{ route('login') }}">
                 @csrf
                 <!-- Email Address -->
                 <div>
                     <x-input-label for="email" :value="__('Email')"/>
                     <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')"
-                                  required autofocus autocomplete="username"/>
+                    />
                     <x-input-error :messages="$errors->get('email')" class="mt-2"/>
                 </div>
 
@@ -26,7 +26,7 @@
                     <x-text-input id="password" class="block mt-1 w-full"
                                   type="password"
                                   name="password"
-                                  required autocomplete="current-password"/>
+                                  />
 
                     <x-input-error :messages="$errors->get('password')" class="mt-2"/>
                 </div>
