@@ -19,6 +19,20 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', HomeController::class)->name('home');
 Route::get('/hubungi-kami', ContactUsController::class)->name('contact');
 
+//Routes for Admin
+Route::group(['middleware' => 'role:Admin'], function () {
+});
+
+//Routes for Petugas
+Route::group(['middleware' => 'role:Petugas'], function () {
+
+});
+
+//Routes for Peminjam
+Route::group(['middleware' => 'role:Peminjam'], function () {
+
+});
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
