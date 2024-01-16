@@ -17,10 +17,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::fallback(fn () => to_route('home'));
+Route::fallback(fn() => to_route('home'));
 
 Route::get('/', HomeController::class)->name('home');
-Route::get('/hubungi-kami', ContactUsController::class)->name('contact');
+Route::get('/hubungi-kami', [ContactUsController::class, 'index'])->name('contact.index');
+Route::post('/hubungi-kami', [ContactUsController::class, 'store'])->name('contact.store');
 
 //Routes for Admin & Petugas
 Route::group(['middleware' => ['auth', 'verified', 'role:Admin|Petugas']], function () {
@@ -32,16 +33,16 @@ Route::group(['middleware' => ['auth', 'verified', 'role:Admin|Petugas']], funct
 });
 
 //Routes for Admin
-Route::group(['middleware' => 'role:Admin'], function () {
+Route::group(['middleware' => ['auth', 'role:Admin']], function () {
 });
 
 //Routes for Petugas
-Route::group(['middleware' => 'role:Petugas'], function () {
+Route::group(['middleware' => ['auth', 'role:Petugas']], function () {
 
 });
 
 //Routes for Peminjam
-Route::group(['middleware' => 'role:Peminjam'], function () {
+Route::group(['middleware' => ['auth', 'role:Peminjam']], function () {
 
 });
 

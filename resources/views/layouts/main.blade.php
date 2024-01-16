@@ -7,6 +7,8 @@
 
     <title>{{ $title}} - Balen</title>
 
+    <link rel="shortcut icon" href="{{asset('img/logo_without_text.png')}}" type="image/x-icon">
+
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>

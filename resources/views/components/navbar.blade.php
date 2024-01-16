@@ -38,10 +38,10 @@
                     <hr class="w-[30px] h-[3px] bg-gray-100 md:peer-hover:block {{request()->routeIs('home') ? 'hidden md:block' : 'hidden'}}">
                 </li>
                 <li>
-                    <a href="{{route('contact')}}"
-                       class="block py-2 px-3 {{request()->routeIs('contact') ? 'text-gray-800 bg-gray-100 md:bg-transparent md:text-gray-100' : 'text-gray-100'}} rounded peer hover:bg-gray-100 md:hover:bg-transparent md:p-0">Hubungi
+                    <a href="{{route('contact.index')}}"
+                       class="block py-2 px-3 {{request()->routeIs('contact.index') ? 'text-gray-800 bg-gray-100 md:bg-transparent md:text-gray-100' : 'text-gray-100'}} rounded peer hover:bg-gray-100 md:hover:bg-transparent md:p-0">Hubungi
                         Kami</a>
-                    <hr class="w-[30px] h-[3px] bg-gray-100 md:peer-hover:block {{request()->routeIs('contact') ? 'hidden md:block' : 'hidden'}}">
+                    <hr class="w-[30px] h-[3px] bg-gray-100 md:peer-hover:block {{request()->routeIs('contact.index') ? 'hidden md:block' : 'hidden'}}">
                 </li>
                 <li>
                     <a href="#"
