@@ -25,7 +25,7 @@
                             <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
                                 <!-- Modal header -->
                                 <div
-                                        class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+                                    class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
                                     <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
                                         Tambah Data Buku Baru
                                     </h3>
@@ -107,7 +107,7 @@
                     <div class="relative overflow-x-auto">
                         <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                             <thead
-                                    class="text-md text-white uppercase bg-[#F15A24]">
+                                class="text-md text-white uppercase bg-[#F15A24]">
                             <tr>
                                 <th scope="col" class="px-6 py-3">
                                     Sampul Buku
@@ -170,6 +170,11 @@
                                     </td>
                             </tr>
                             @empty
+                                <tr>
+                                    <td colspan="6">
+                                        <h2 class="text-center text-2xl font-bold">Tidak ada buku terbaru...</h2>
+                                    </td>
+                                </tr>
                             @endforelse
                             </tbody>
                         </table>

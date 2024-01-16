@@ -29,8 +29,7 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->intended(RouteServiceProvider::HOME);
-    }
+        return redirect()->intended(route('home'))->with('message', 'Welcome, ' . auth()->user()->namaLengkap . "!");    }
 
     /**
      * Destroy an authenticated session.
@@ -43,6 +42,6 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('/');
+        return redirect('/')->with('message', 'Bye-bye!');
     }
 }

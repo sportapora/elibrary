@@ -17,6 +17,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::fallback(fn () => to_route('home'));
+
 Route::get('/', HomeController::class)->name('home');
 Route::get('/hubungi-kami', ContactUsController::class)->name('contact');
 
