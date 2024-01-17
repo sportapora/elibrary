@@ -154,7 +154,7 @@
                                     <th scope="row"
                                         class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                         <img src="{{asset('storage/' . $book->sampul_buku)}}" alt="{{$book->judul}}"
-                                             class="w-[200px]">
+                                             class="w-[150px]">
                                     </th>
                                     <td class="px-6 py-4">
                                         {{$book->judul}}
