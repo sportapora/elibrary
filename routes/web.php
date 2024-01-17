@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
@@ -25,21 +26,14 @@ Route::post('/hubungi-kami', [ContactUsController::class, 'store'])->name('conta
 
 //Routes for Admin & Petugas
 Route::group(['middleware' => ['auth', 'verified', 'role:Admin|Petugas']], function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
-
-    Route::resource('/books', BookController::class)->except('create', 'edit');
+    Route::resource('/books', BookController::class)->except('create', 'edit', 'show');
+    Route::resource('/categories', CategoryController::class)->except('create', 'edit', 'show');
 });
 
 //Routes for Admin
 Route::group(['middleware' => ['auth', 'role:Admin']], function () {
 });
 
-//Routes for Petugas
-Route::group(['middleware' => ['auth', 'role:Petugas']], function () {
-
-});
 
 //Routes for Peminjam
 Route::group(['middleware' => ['auth', 'role:Peminjam']], function () {

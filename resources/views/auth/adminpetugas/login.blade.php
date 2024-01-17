@@ -9,7 +9,7 @@
 
         <div class="bg-[#879EA6] rounded-2xl p-10">
             <h1 class="text-3xl font-bold mb-6 text-center">Admin Login</h1>
-            <form method="POST" action="{{ route('login') }}">
+            <form method="POST" action="{{ route('admin.login.store') }}">
                 @csrf
                 <!-- Email Address -->
                 <div>

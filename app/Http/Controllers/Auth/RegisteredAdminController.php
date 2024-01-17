@@ -52,6 +52,6 @@ class RegisteredAdminController extends Controller
 
         Auth::login($user);
 
-        return redirect(RouteServiceProvider::HOME);
+        return redirect(route('books.index'));
     }
 }

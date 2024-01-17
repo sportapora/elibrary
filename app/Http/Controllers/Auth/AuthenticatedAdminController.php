@@ -29,7 +29,7 @@ class AuthenticatedAdminController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->intended(RouteServiceProvider::HOME);
+        return redirect()->intended(route('books.index'));
     }
 
     /**
@@ -43,6 +43,6 @@ class AuthenticatedAdminController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('/');
+        return redirect('/')->with('message', 'Bye-bye!');
     }
 }
