@@ -87,7 +87,7 @@
                                     </td>
                                     <td class="px-6 py-4">
                                         <div class="flex flex-col md:flex-row gap-3">
-                                            <button data-modal-target="edit-modal" data-modal-toggle="edit-modal"
+                                            <button data-modal-target="edit-modal-{{$category->id}}" data-modal-toggle="edit-modal-{{$category->id}}"
                                                     class="block text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm px-4 py-2 text-center mb-6"
                                                     type="button">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17"
@@ -99,7 +99,7 @@
                                                 </svg>
                                             </button>
                                             <!-- Main modal -->
-                                            <div id="edit-modal" tabindex="-1" aria-hidden="true"
+                                            <div id="edit-modal-{{$category->id}}" tabindex="-1" aria-hidden="true"
                                                  class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
                                                 <div class="relative p-4 w-full max-w-md max-h-full">
                                                     <!-- Modal content -->
