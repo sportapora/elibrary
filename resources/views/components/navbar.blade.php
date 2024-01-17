@@ -1,26 +1,25 @@
-<nav class="bg-[#F15A24] border-gray-200 fixed w-full z-[99] top-0">
-    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4 px-10 md:px-20">
-        <a href="{{route('home')}}/" class="flex items-center space-x-3 rtl:space-x-reverse">
+<nav class="bg-secondary border-gray-200">
+    <div class="max-w-screen-xl flex flex-wrap items-center justify-between px-10 md:px-20 mx-auto p-4">
+        <a href="{{route('home')}}" class="flex items-center space-x-3 rtl:space-x-reverse">
             <img src="{{asset('img/logo.png')}}" class="h-8" alt="Balen Logo"/>
         </a>
         <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-
-            @auth
-                <a href="{{route('logout')}}"
-                   onclick="event.preventDefault(); document.querySelector('#logout').submit()"
-                   class="text-gray-900 bg-gray-100 hover:bg-gray-300 focus:ring-4 focus:outline-none focus:ring-blue-300 font-bold rounded-lg text-sm uppercase px-8 py-2 text-center">
-                    Logout
-                </a>
-                <form action="{{route('logout')}}" method="post" id="logout">@csrf</form>
-            @else
+            @guest
                 <a href="{{route('login')}}"
-                   class="text-gray-900 bg-gray-100 hover:bg-gray-300 focus:ring-4 focus:outline-none focus:ring-blue-300 font-bold rounded-lg text-sm uppercase px-8 py-2 text-center">
+                   class="text-gray-900 bg-white hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-300 font-bold rounded-lg text-md px-4 py-2 text-center">
                     Login
                 </a>
-            @endauth
-            <button data-collapse-toggle="navbar-default" type="button"
-                    class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-100 rounded-lg md:hidden hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-                    aria-controls="navbar-default" aria-expanded="false">
+            @else
+                <a href="{{route('logout')}}"
+                   onclick="event.preventDefault(); document.querySelector('#logout-form').submit()"
+                   class="text-gray-900 bg-white hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-300 font-bold rounded-lg text-md px-4 py-2 text-center">
+                    Logout
+                </a>
+                <form action="{{route('logout')}}" method="post" id="logout-form" class="hidden">@csrf</form>
+            @endguest
+            <button data-collapse-toggle="navbar-cta" type="button"
+                    class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                    aria-controls="navbar-cta" aria-expanded="false">
                 <span class="sr-only">Open main menu</span>
                 <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
                      viewBox="0 0 17 14">
@@ -29,31 +28,38 @@
                 </svg>
             </button>
         </div>
-        <div class="hidden w-full md:block md:w-auto" id="navbar-default">
-            <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-[#F15A24] md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-[#F15A24]">
+        <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-cta">
+            <ul class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-secondary md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-secondary">
                 <li>
                     <a href="{{route('home')}}"
-                       class="block py-2 px-3 {{request()->routeIs('home') ? 'text-gray-800 bg-gray-100 md:bg-transparent md:text-gray-100' : 'text-gray-100'}} rounded peer hover:bg-gray-100 md:hover:bg-transparent md:p-0"
+                       class="block peer py-2 px-3 md:p-0 {{request()->routeIs('home') ? 'text-gray-900 md:text-white bg-white rounded md:bg-transparent' : 'text-white rounded'}}"
                        aria-current="page">Beranda</a>
-                    <hr class="w-[30px] h-[3px] bg-gray-100 md:peer-hover:block {{request()->routeIs('home') ? 'hidden md:block' : 'hidden'}}">
+                    <hr class="md:peer-hover:block {{request()->routeIs('home') ? 'text-white hidden md:block' : 'hidden'}}">
                 </li>
                 <li>
                     <a href="{{route('contact.index')}}"
-                       class="block py-2 px-3 {{request()->routeIs('contact.index') ? 'text-gray-800 bg-gray-100 md:bg-transparent md:text-gray-100' : 'text-gray-100'}} rounded peer hover:bg-gray-100 md:hover:bg-transparent md:p-0">Hubungi
-                        Kami</a>
-                    <hr class="w-[30px] h-[3px] bg-gray-100 md:peer-hover:block {{request()->routeIs('contact.index') ? 'hidden md:block' : 'hidden'}}">
+                       class="block peer py-2 px-3 md:p-0 {{request()->routeIs('contact.index') ? 'text-gray-900 md:text-white bg-white rounded md:bg-transparent' : 'text-white rounded'}}">
+                        Hubungi Kami
+                    </a>
+                    <hr class="md:peer-hover:block {{request()->routeIs('contact.index') ? 'text-white hidden md:block' : 'hidden'}}">
                 </li>
                 <li>
-                    <a href="#"
-                       class="block py-2 px-3 {{request()->routeIs('service') ? 'text-gray-800 bg-gray-100 md:bg-transparent md:text-gray-100' : 'text-gray-100'}} rounded peer hover:bg-gray-100 md:hover:bg-transparent md:p-0">Layanan</a>
-                    <hr class="w-[30px] h-[3px] bg-gray-100 md:peer-hover:block {{request()->routeIs('service') ? 'hidden md:block' : 'hidden'}}">
+                    <a href="{{route('contact.index')}}"
+                       class="block peer py-2 px-3 md:p-0 {{request()->routeIs('contact.index') ? 'text-gray-900 md:text-white bg-white rounded md:bg-transparent' : 'text-white rounded'}}">
+                        Layanan
+                    </a>
+                    <hr class="md:peer-hover:block {{request()->routeIs('contact.index') ? 'text-white hidden md:block' : 'hidden'}}">
                 </li>
                 @auth
+                    @role('Peminjam')
                     <li>
-                        <a href="#"
-                           class="block py-2 px-3 {{request()->routeIs('collection') ? 'text-gray-800 bg-gray-100 md:bg-transparent md:text-gray-100' : 'text-gray-100'}} rounded peer hover:bg-gray-100 md:hover:bg-transparent md:p-0">Koleksi</a>
-                        <hr class="w-[30px] h-[3px] bg-gray-100 md:peer-hover:block {{request()->routeIs('collection') ? 'hidden md:block' : 'hidden'}}">
+                        <a href="{{route('contact.index')}}"
+                           class="block peer py-2 px-3 md:p-0 {{request()->routeIs('contact.index') ? 'text-gray-900 md:text-white bg-white rounded md:bg-transparent' : 'text-white rounded'}}">
+                            Koleksi
+                        </a>
+                        <hr class="md:peer-hover:block {{request()->routeIs('contact.index') ? 'text-white hidden md:block' : 'hidden'}}">
                     </li>
+                    @endrole
                 @endauth
             </ul>
         </div>

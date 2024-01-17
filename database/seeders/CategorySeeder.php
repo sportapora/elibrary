@@ -26,6 +26,9 @@ class CategorySeeder extends Seeder
             [
                 'namaKategori' => 'Komik'
             ],
+            [
+                'namaKategori' => 'Novel'
+            ],
         ]);
     }
 }

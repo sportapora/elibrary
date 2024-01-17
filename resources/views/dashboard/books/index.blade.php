@@ -10,7 +10,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
-                    <x-session-alert />
+                    <x-session-alert/>
                     <!-- Modal toggle -->
                     <button data-modal-target="create-modal" data-modal-toggle="create-modal"
                             class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mb-6"
@@ -26,7 +26,7 @@
                             <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
                                 <!-- Modal header -->
                                 <div
-                                        class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+                                    class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
                                     <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
                                         Tambah Data Buku Baru
                                     </h3>
@@ -101,7 +101,7 @@
                                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
                                                 @forelse($categories as $category)
                                                     <option
-                                                            value="{{$category->id}}">{{$category->namaKategori}}</option>
+                                                        value="{{$category->id}}">{{$category->namaKategori}}</option>
                                                 @empty
                                                     <option disabled></option>
                                                 @endforelse
@@ -123,7 +123,7 @@
                     <div class="relative overflow-x-auto">
                         <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                             <thead
-                                    class="text-md text-white uppercase bg-[#F15A24]">
+                                class="text-md text-white uppercase bg-secondary">
                             <tr>
                                 <th scope="col" class="px-6 py-3">
                                     Sampul Buku
@@ -193,7 +193,7 @@
                                                     <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
                                                         <!-- Modal header -->
                                                         <div
-                                                                class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+                                                            class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
                                                             <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
                                                                 Edit Data Buku
                                                             </h3>
@@ -228,8 +228,8 @@
                                                                                   name="sampul_buku"/>
 
                                                                     <x-input-error
-                                                                            :messages="$errors->get('sampul_buku')"
-                                                                            class="mt-2"/>
+                                                                        :messages="$errors->get('sampul_buku')"
+                                                                        class="mt-2"/>
                                                                 </div>
                                                                 <div>
                                                                     <x-input-label for="judul"
@@ -279,8 +279,8 @@
                                                                                   name="tahunTerbit"/>
 
                                                                     <x-input-error
-                                                                            :messages="$errors->get('tahunTerbit')"
-                                                                            class="mt-2"/>
+                                                                        :messages="$errors->get('tahunTerbit')"
+                                                                        class="mt-2"/>
                                                                 </div>
                                                                 <div>
                                                                     <x-input-label for="category_id"
@@ -289,14 +289,14 @@
                                                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
                                                                         @forelse($categories as $category)
                                                                             <option
-                                                                                    value="{{$category->id}}" @selected($category->id === $book->category_id)>{{$category->namaKategori}}</option>
+                                                                                value="{{$category->id}}" @selected($category->id === $book->category_id)>{{$category->namaKategori}}</option>
                                                                         @empty
                                                                             <option disabled></option>
                                                                         @endforelse
                                                                     </select>
                                                                     <x-input-error
-                                                                            :messages="$errors->get('category_id')"
-                                                                            class="mt-2"/>
+                                                                        :messages="$errors->get('category_id')"
+                                                                        class="mt-2"/>
                                                                 </div>
 
                                                                 <div class="flex justify-center mt-10">
@@ -338,6 +338,10 @@
                             @endforelse
                             </tbody>
                         </table>
+
+                        <div class="mt-4">
+                            {{$books->links()}}
+                        </div>
                     </div>
                 </div>
             </div>

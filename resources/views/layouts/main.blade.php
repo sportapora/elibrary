@@ -15,7 +15,7 @@
 <body class="antialiased">
 <x-navbar/>
 
-<div class="px-16 md:px-32 mt-32 pb-32">
+<div class="px-16 md:px-32 pb-32">
     @yield('content')
 </div>
 </body>

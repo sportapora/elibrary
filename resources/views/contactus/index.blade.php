@@ -3,7 +3,7 @@
 @section('content')
     <x-session-alert/>
 
-    <div class="flex flex-col-reverse md:flex-row justify-between">
+    <div class="flex flex-col-reverse md:flex-row justify-between mt-10">
         <div>
             <h1 class="text-3xl font-bold text-primary">Hubungi Kami</h1>
 
@@ -35,6 +35,8 @@
             </form>
         </div>
 
-        <img src="{{asset('img/contactus.png')}}" alt="Contact Us Illustration" class="w-[370px]">
+        <div class="w-full md:w-[400px]">
+            <img src="{{asset('img/contactus.png')}}" alt="Contact Us Illustration" class="w-full">
+        </div>
     </div>
 @endsection

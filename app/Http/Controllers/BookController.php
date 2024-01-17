@@ -14,7 +14,7 @@ class BookController extends Controller
         $books = Book::query()
             ->with('category')
             ->latest()
-            ->get();
+            ->paginate(10);
         $categories = Category::orderBy('namaKategori')->get();
 
         return view('dashboard.books.index', compact('books', 'categories'));
