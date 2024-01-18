@@ -32,9 +32,9 @@
             <ul class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-secondary md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-secondary">
                 <li>
                     <a href="{{route('home')}}"
-                       class="block peer py-2 px-3 md:p-0 {{request()->routeIs('home') ? 'text-gray-900 md:text-white bg-white rounded md:bg-transparent' : 'text-white rounded'}}"
+                       class="block peer py-2 px-3 md:p-0 {{request()->routeIs('home*') ? 'text-gray-900 md:text-white bg-white rounded md:bg-transparent' : 'text-white rounded'}}"
                        aria-current="page">Beranda</a>
-                    <hr class="md:peer-hover:block {{request()->routeIs('home') ? 'text-white hidden md:block' : 'hidden'}}">
+                    <hr class="md:peer-hover:block {{request()->routeIs('home*') ? 'text-white hidden md:block' : 'hidden'}}">
                 </li>
                 <li>
                     <a href="{{route('contact.index')}}"

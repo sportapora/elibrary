@@ -38,7 +38,7 @@ Route::group(['middleware' => ['auth', 'role:Admin']], function () {
 
 //Routes for Peminjam
 Route::group(['middleware' => ['auth', 'role:Peminjam']], function () {
-
+    Route::post('review/{book:id}', [HomeController::class, 'store'])->name('review.store');
 });
 
 require __DIR__ . '/auth.php';

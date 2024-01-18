@@ -115,7 +115,7 @@
         @forelse($books as $book)
             <div
                     class="w-full rounded-2xl bg-none hover:bg-[#D9D9D9] group ease-in-out transition-all duration-150 p-4">
-                <a href="" class="flex flex-col justify-center items-center">
+                <a href="{{route('home.detail', $book)}}" class="flex flex-col justify-center items-center">
                     <img src="{{asset('storage/' . $book->sampul_buku)}}" alt="{{$book->judul}}"
                          class="w-[200px] mb-6">
                     <h1 class="text-2xl font-bold mb-3">{{$book->judul}}</h1>
