@@ -20,7 +20,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::fallback(fn() => to_route('home'));
 
-Route::get('/', HomeController::class)->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/book/{book:id}', [HomeController::class, 'show'])->name('home.detail');
 Route::get('/hubungi-kami', [ContactUsController::class, 'index'])->name('contact.index');
 Route::post('/hubungi-kami', [ContactUsController::class, 'store'])->name('contact.store');
 

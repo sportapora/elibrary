@@ -4,17 +4,23 @@ namespace App\Http\Controllers;
 
 use App\Models\Book;
 use App\Models\Category;
-use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    public function __invoke()
+    public function index()
     {
-        $books = Book::query()
+        $books = Book::search(request(['search', 'category']))
             ->latest()
             ->get();
         $categories = Category::orderBy('namaKategori')->get();
 
         return view('home.index', compact('books', 'categories'));
+    }
+
+    public function show(Book $book)
+    {
+        $book->load('category');
+
+        return view('home.show', compact('book'));
     }
 }

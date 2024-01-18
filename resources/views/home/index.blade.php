@@ -54,7 +54,7 @@
     </div>
 
     <div class="flex justify-center">
-        <form class="w-1/2" action="{{route('home')}}">
+        <form class="w-1/2" action="{{route('home')}}" id="search">
             <div class="flex">
                 <label for="search-dropdown" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Your
                     Email</label>
@@ -70,9 +70,11 @@
                 <div id="dropdown"
                      class="z-[99] hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
                     <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdown-button">
+                        <input type="hidden" id="category" name="category" value="">
                         @forelse($categories as $category)
                             <li>
                                 <button type="button"
+                                        onclick="document.querySelector('#category').value = '{{$category->id}}'; document.querySelector('#search').submit()"
                                         class="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
                                     {{$category->namaKategori}}
                                 </button>
@@ -88,7 +90,9 @@
                     </ul>
                 </div>
                 <div class="relative w-full">
-                    <input type="search" id="search-dropdown"
+                    <input type="text" id="search"
+                           name="search"
+                           value="{{old('search')}}"
                            class="block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-e-lg border-s-gray-50 border-s-2 border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-s-gray-700  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-blue-500"
                            placeholder="Judul buku, cari buku" required>
                     <button type="submit"
@@ -109,9 +113,17 @@
 
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-10 mt-6">
         @forelse($books as $book)
-            <div class="flex flex-col justify-center items-center w-full rounded-2xl bg-none hover:bg-[#D9D9D9] ease-in-out transition-all duration-150 p-4">
-                <img src="{{asset('storage/' . $book->sampul_buku)}}" alt="{{$book->judul}}" class="w-[200px] mb-10">
-
+            <div
+                    class="w-full rounded-2xl bg-none hover:bg-[#D9D9D9] group ease-in-out transition-all duration-150 p-4">
+                <a href="" class="flex flex-col justify-center items-center">
+                    <img src="{{asset('storage/' . $book->sampul_buku)}}" alt="{{$book->judul}}"
+                         class="w-[200px] mb-6">
+                    <h1 class="text-2xl font-bold mb-3">{{$book->judul}}</h1>
+                    <div
+                            class="bg-[#6B9DBA]/50 group-hover:bg-[#6B9DBA] ease-in-out transition-all duration-150 p-5 rounded-2xl">
+                        <p>{{ substr($book->ringkasan, 0, 150) . "..."}}</p>
+                    </div>
+                </a>
             </div>
 
         @empty
