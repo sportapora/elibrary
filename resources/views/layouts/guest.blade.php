@@ -14,7 +14,7 @@
     </head>
     <body class="text-gray-100 antialiased" style="background: url('{{asset('img/background.png')}}') no-repeat fixed center">
         <div class="min-h-screen flex flex-col justify-center items-center sm:pt-0 px-10 md:px-20 py-10 md:py-20">
-            <div class="w-full px-6 py-4 bg-[#F15A24]/60 shadow-md overflow-hidden rounded-[45px]">
+            <div class="w-full px-6 py-4 bg-white/25 shadow-md overflow-hidden rounded-[45px]">
                 {{ $slot }}
             </div>
         </div>

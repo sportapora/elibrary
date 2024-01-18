@@ -26,7 +26,7 @@ Route::post('/hubungi-kami', [ContactUsController::class, 'store'])->name('conta
 
 //Routes for Admin & Petugas
 Route::group(['middleware' => ['auth', 'verified', 'role:Admin|Petugas']], function () {
-    Route::resource('/books', BookController::class)->except('create', 'edit', 'show');
+    Route::resource('/books', BookController::class)->except('create', 'edit');
     Route::resource('/categories', CategoryController::class)->except('create', 'edit', 'show');
 });
 

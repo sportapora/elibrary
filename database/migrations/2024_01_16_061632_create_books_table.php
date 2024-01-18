@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('penerbit');
             $table->integer('tahunTerbit');
             $table->foreignId('category_id')->constrained('categories');
+            $table->text('ringkasan');
             $table->timestamps();
         });
     }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Book;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -10,8 +11,10 @@ class HomeController extends Controller
     public function __invoke()
     {
         $books = Book::query()
-            ->limit(3)
+            ->latest()
             ->get();
-        return view('home.index', compact('books'));
+        $categories = Category::orderBy('namaKategori')->get();
+
+        return view('home.index', compact('books', 'categories'));
     }
 }

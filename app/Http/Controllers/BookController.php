@@ -12,7 +12,6 @@ class BookController extends Controller
     public function index()
     {
         $books = Book::query()
-            ->with('category')
             ->latest()
             ->paginate(10);
         $categories = Category::orderBy('namaKategori')->get();
@@ -28,7 +27,8 @@ class BookController extends Controller
             'penulis' => 'required|string|max:255',
             'tahunTerbit' => 'required',
             'sampul_buku' => 'required|max:4096|file|mimes:jpeg,jpg,png',
-            'category_id' => 'required'
+            'category_id' => 'required',
+            'ringkasan' => 'required|string'
         ], [
             'category_id.required' => 'The category field is required'
         ]);
@@ -40,6 +40,13 @@ class BookController extends Controller
         return back()->with('message', 'Data buku berhasil ditambahkan!');
     }
 
+    public function show(Book $book)
+    {
+        $book->load('category');
+
+        return view('dashboard.books.show', compact('book'));
+    }
+
     public function update(Request $request, Book $book)
     {
         $data = $request->validate([
@@ -48,7 +55,8 @@ class BookController extends Controller
             'penulis' => 'required|string|max:255',
             'tahunTerbit' => 'required',
             'sampul_buku' => 'nullable|max:4096|file|mimes:jpeg,jpg,png',
-            'category_id' => 'required'
+            'category_id' => 'required',
+            'ringkasan' => 'required|string'
         ], [
             'category_id.required' => 'The category field is required'
         ]);

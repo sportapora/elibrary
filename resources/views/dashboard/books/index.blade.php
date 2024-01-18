@@ -86,6 +86,12 @@
                                             <x-input-error :messages="$errors->get('penerbit')" class="mt-2"/>
                                         </div>
                                         <div>
+                                            <x-input-label for="ringkasan" :value="__('Ringkasan')"/>
+                                            <textarea name="ringkasan" id="ringkasan" rows="15"
+                                                      class="border-gray-300 w-full focus:border-indigo-500 text-primary focus:ring-indigo-500 rounded-md shadow-sm">{{old('ringkasan')}}</textarea>
+                                            <x-input-error :messages="$errors->get('ringkasan')" class="mt-2"/>
+                                        </div>
+                                        <div>
                                             <x-input-label for="tahunTerbit" :value="__('Tahun Terbit Buku')"/>
 
                                             <x-text-input id="tahunTerbit" class="block mt-1 w-full"
@@ -132,9 +138,6 @@
                                     Judul
                                 </th>
                                 <th scope="col" class="px-6 py-3">
-                                    Kategori
-                                </th>
-                                <th scope="col" class="px-6 py-3">
                                     Penulis
                                 </th>
                                 <th scope="col" class="px-6 py-3">
@@ -160,9 +163,6 @@
                                         {{$book->judul}}
                                     </td>
                                     <td class="px-6 py-4">
-                                        {{$book->category->namaKategori}}
-                                    </td>
-                                    <td class="px-6 py-4">
                                         {{$book->penulis}}
                                     </td>
                                     <td class="px-6 py-4">
@@ -173,6 +173,17 @@
                                     </td>
                                     <td class="px-6 py-4">
                                         <div class="flex flex-col md:flex-row gap-4">
+                                            <a href="{{route('books.show', $book)}}" class="text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                     viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                     stroke-width="2"
+                                                     stroke-linecap="round" stroke-linejoin="round"
+                                                     class="lucide lucide-eye">
+                                                    <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/>
+                                                    <circle cx="12" cy="12" r="3"/>
+                                                </svg>
+                                            </a>
+
                                             <button type="button"
                                                     data-modal-target="edit-modal-{{$book->id}}"
                                                     data-modal-toggle="edit-modal-{{$book->id}}"
