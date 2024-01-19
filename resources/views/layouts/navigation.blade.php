@@ -18,6 +18,11 @@
                     <x-nav-link :href="route('categories.index')" :active="request()->routeIs('categories.*')">
                         {{ __('Kategori Buku') }}
                     </x-nav-link>
+                    @role('Admin')
+                    <x-nav-link :href="route('users.index')" :active="request()->routeIs('users.*')">
+                        {{ __('Petugas') }}
+                    </x-nav-link>
+                    @endrole
                 </div>
             </div>
 
@@ -79,6 +84,9 @@
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('categories.index')" :active="request()->routeIs('categories.*')">
                 {{ __('Kategori Buku') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('users.index')" :active="request()->routeIs('users.*')">
+                {{ __('Petugas') }}
             </x-responsive-nav-link>
         </div>
 
