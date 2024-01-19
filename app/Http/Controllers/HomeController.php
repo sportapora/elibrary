@@ -22,7 +22,7 @@ class HomeController extends Controller
 
     public function show(Book $book)
     {
-        $book->load('category');
+        $book->load('category')->load('reviews');
 
         return view('home.show', compact('book'));
     }

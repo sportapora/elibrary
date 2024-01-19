@@ -33,6 +33,7 @@ Route::group(['middleware' => ['auth', 'verified', 'role:Admin|Petugas']], funct
 
 //Routes for Admin
 Route::group(['middleware' => ['auth', 'role:Admin']], function () {
+    Route::delete('/review/{bookreview:id}', [BookController::class, 'destroyReview'])->name('review.destroy');
 });
 
 

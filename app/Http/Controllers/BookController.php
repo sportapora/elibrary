@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Book;
+use App\Models\BookReview;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -42,7 +43,7 @@ class BookController extends Controller
 
     public function show(Book $book)
     {
-        $book->load('category');
+        $book->load('category')->load('reviews');
 
         return view('dashboard.books.show', compact('book'));
     }
@@ -77,5 +78,12 @@ class BookController extends Controller
         $book->delete();
 
         return back()->with('message', 'Data buku berhasil dihapus!');
+    }
+
+    public function destroyReview(BookReview $bookreview)
+    {
+        $bookreview->delete();
+
+        return back()->with('message', 'Ulasan berhasil dihapus!');
     }
 }

@@ -70,7 +70,7 @@
                 <div id="dropdown"
                      class="z-[99] hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
                     <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdown-button">
-                        <input type="hidden" id="category" name="category" value="">
+                        <input type="hidden" id="category" name="category">
                         @forelse($categories as $category)
                             <li>
                                 <button type="button"
