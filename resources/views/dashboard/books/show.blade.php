@@ -103,7 +103,7 @@
                         </tbody>
                     </table>
                     @else
-                        <h2 class="text-xl font-semibold">Anda tidak memiliki hak akses</h2>
+                        <h2 class="text-lg font-medium">Anda tidak memiliki hak akses</h2>
                     @endrole
                 </div>
             </div>

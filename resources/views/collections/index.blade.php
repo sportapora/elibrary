@@ -1,0 +1,47 @@
+@extends('layouts.main', ['title' => 'Koleksi Saya'])
+
+@section('content')
+    <div class="py-6 px-3 bg-[#D9D9D9]">
+        <ul class="flex flex-col lg:flex-row gap-6 text-white">
+            <li class="bg-[#00065C] px-12 py-2 rounded-3xl">
+                <a href="/collections?category=novel">Novel</a>
+            </li>
+            <li class="bg-transparent text-gray-900 hover:bg-[#00065c] hover:text-white ease-in-out transition-all duration-100 px-12 py-2 rounded-3xl">
+                <a href="/collections?category=bukuilmiah">Buku Ilmiah</a>
+            </li>
+            <li class="bg-transparent text-gray-900 hover:bg-[#00065c] hover:text-white ease-in-out transition-all duration-100 px-12 py-2 rounded-3xl">
+                <a href="/collections?category=komik">Komik</a>
+            </li>
+            <li class="bg-transparent text-gray-900 hover:bg-[#00065c] hover:text-white ease-in-out transition-all duration-100 px-12 py-2 rounded-3xl">
+                <a href="/collections?category=majalah">Majalah</a>
+            </li>
+        </ul>
+
+        <h1 class="bg-[#00065C] w-1/4 px-12 py-2 rounded-xl mt-4 text-white font-bold text-xl uppercase">Koleksi
+            Saya</h1>
+    </div>
+
+    <div class="mt-10">
+        <h2 class="text-lg">{{count($books)}} hasil</h2>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-10 mt-6">
+            @forelse($books as $book)
+                <div
+                    class="w-full rounded-2xl bg-none hover:bg-[#D9D9D9] group ease-in-out transition-all duration-150 p-4">
+                    <a href="{{route('home.detail', $book)}}" class="flex flex-col justify-center items-center">
+                        <img src="{{asset('storage/' . $book->sampul_buku)}}" alt="{{$book->judul}}"
+                             class="w-[200px] mb-6">
+                        <h1 class="text-2xl font-bold mb-3">{{$book->judul}}</h1>
+                        <div
+                            class="bg-[#6B9DBA]/50 group-hover:bg-[#6B9DBA] ease-in-out transition-all duration-150 p-5 rounded-2xl">
+                            <p>{{ substr($book->ringkasan, 0, 150) . "..."}}</p>
+                        </div>
+                    </a>
+                </div>
+
+            @empty
+                <h2 class="text-2xl font-medium mt-6">Tidak ada buku terbaru...</h2>
+            @endforelse
+        </div>
+    </div>
+@endsection

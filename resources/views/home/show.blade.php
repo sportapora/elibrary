@@ -25,6 +25,22 @@
         </div>
     </div>
     <p class="block lg:hidden">{{$book->ringkasan}}</p>
+
+    <div class="mt-6 flex flex-col md:flex-row gap-0 md:gap-3">
+        @auth
+            <button type="button"
+                    class="text-white bg-secondary hover:bg-secondary/75 focus:ring-4 focus:ring-secondary/25 font-medium rounded-lg text-sm px-5 py-2.5 mb-2">
+                Tambahkan ke Koleksi
+            </button>
+            <button type="button"
+                    class="text-white bg-blue-700 hover:bg-blue-800/75 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2">
+                Pinjam Buku Ini
+            </button>
+        @else
+            <h3 class="text-lg font-medium mt-2">Silakan login untuk meminjam & menambahkan ke favorit</h3>
+        @endauth
+    </div>
+
     <hr class="my-10">
     <div>
         <h2 class="text-2xl font-semibold">Ulasan Buku</h2>
@@ -62,7 +78,8 @@
                 </div>
 
                 <div class="flex justify-center">
-                    <button type="submit" class="bg-primary font-bold text-gray-100 rounded-3xl px-6 py-2">Send Message
+                    <button type="submit" class="bg-primary font-bold text-gray-100 rounded-3xl px-6 py-2">Send
+                        Message
                     </button>
                 </div>
             </form>
@@ -70,7 +87,7 @@
             <h3 class="text-xl font-medium mt-2">Anda tidak memiliki hak akses</h3>
             @endrole
             @else
-                <h3 class="text-xl font-medium mt-2">Silakan login untuk memberi ulasan</h3>
+                <h3 class="text-lg font-medium mt-2">Silakan login untuk memberi ulasan</h3>
             @endauth
     </div>
 @endsection

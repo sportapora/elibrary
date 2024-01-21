@@ -53,11 +53,11 @@
                 @auth
                     @role('Peminjam')
                     <li>
-                        <a href="{{route('contact.index')}}"
-                           class="block peer py-2 px-3 md:p-0 {{request()->routeIs('contact.index') ? 'text-gray-900 md:text-white bg-white rounded md:bg-transparent' : 'text-white rounded'}}">
+                        <a href="{{route('collections.index')}}"
+                           class="block peer py-2 px-3 md:p-0 {{request()->routeIs('collections.index') ? 'text-gray-900 md:text-white bg-white rounded md:bg-transparent' : 'text-white rounded'}}">
                             Koleksi
                         </a>
-                        <hr class="md:peer-hover:block {{request()->routeIs('contact.index') ? 'text-white hidden md:block' : 'hidden'}}">
+                        <hr class="md:peer-hover:block {{request()->routeIs('collections.index') ? 'text-white hidden md:block' : 'hidden'}}">
                     </li>
                     @endrole
                 @endauth
