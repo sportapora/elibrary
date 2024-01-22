@@ -28,14 +28,17 @@
 
     <div class="mt-6 flex flex-col md:flex-row gap-0 md:gap-3">
         @auth
-            <button type="button"
-                    class="text-white bg-secondary hover:bg-secondary/75 focus:ring-4 focus:ring-secondary/25 font-medium rounded-lg text-sm px-5 py-2.5 mb-2">
+            <a href="{{route('collections.store', $book)}}"
+               onclick="event.preventDefault(); document.querySelector('#store-collection').submit();"
+               class="text-white bg-secondary hover:bg-secondary/75 focus:ring-4 focus:ring-secondary/25 font-medium rounded-lg text-sm px-5 py-2.5 mb-2">
                 Tambahkan ke Koleksi
-            </button>
-            <button type="button"
-                    class="text-white bg-blue-700 hover:bg-blue-800/75 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2">
+            </a>
+            <form action="{{route('collections.store', $book)}}" method="post" class="hidden"
+                  id="store-collection">@csrf</form>
+            <a href=""
+               class="text-white bg-blue-700 hover:bg-blue-800/75 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2">
                 Pinjam Buku Ini
-            </button>
+            </a>
         @else
             <h3 class="text-lg font-medium mt-2">Silakan login untuk meminjam & menambahkan ke favorit</h3>
         @endauth

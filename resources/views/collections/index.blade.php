@@ -2,17 +2,17 @@
 
 @section('content')
     <div class="py-6 px-3 bg-[#D9D9D9]">
-        <ul class="flex flex-col lg:flex-row gap-6 text-white">
-            <li class="bg-[#00065C] px-12 py-2 rounded-3xl">
+        <ul class="flex flex-col lg:flex-row gap-6">
+            <li class="{{request()->url() == '/collections?category=novel'  ? 'bg-[#00065C] text-white' : 'bg-transparent text-gray-900 hover:bg-[#00065c] hover:text-white'}} ease-in-out transition-all duration-100 px-12 py-2 rounded-3xl">
                 <a href="/collections?category=novel">Novel</a>
             </li>
-            <li class="bg-transparent text-gray-900 hover:bg-[#00065c] hover:text-white ease-in-out transition-all duration-100 px-12 py-2 rounded-3xl">
+            <li class="{{request()->url() == '/collections?category=bukuilmiah'  ? 'bg-[#00065C] text-white' : 'bg-transparent text-gray-900 hover:bg-[#00065c] hover:text-white'}} ease-in-out transition-all duration-100 px-12 py-2 rounded-3xl">
                 <a href="/collections?category=bukuilmiah">Buku Ilmiah</a>
             </li>
-            <li class="bg-transparent text-gray-900 hover:bg-[#00065c] hover:text-white ease-in-out transition-all duration-100 px-12 py-2 rounded-3xl">
+            <li class="{{request()->url() == '/collections?category=komik'  ? 'bg-[#00065C] text-white' : 'bg-transparent text-gray-900 hover:bg-[#00065c] hover:text-white'}} ease-in-out transition-all duration-100 px-12 py-2 rounded-3xl">
                 <a href="/collections?category=komik">Komik</a>
             </li>
-            <li class="bg-transparent text-gray-900 hover:bg-[#00065c] hover:text-white ease-in-out transition-all duration-100 px-12 py-2 rounded-3xl">
+            <li class="{{request()->url() == '/collections?category=majalah'  ? 'bg-[#00065C] text-white' : 'bg-transparent text-gray-900 hover:bg-[#00065c] hover:text-white'}} ease-in-out transition-all duration-100 px-12 py-2 rounded-3xl">
                 <a href="/collections?category=majalah">Majalah</a>
             </li>
         </ul>
@@ -34,7 +34,7 @@
                         <h1 class="text-2xl font-bold mb-3">{{$book->judul}}</h1>
                         <div
                             class="bg-[#6B9DBA]/50 group-hover:bg-[#6B9DBA] ease-in-out transition-all duration-150 p-5 rounded-2xl">
-                            <p>{{ substr($book->ringkasan, 0, 150) . "..."}}</p>
+
                         </div>
                     </a>
                 </div>

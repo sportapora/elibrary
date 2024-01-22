@@ -44,6 +44,7 @@ Route::group(['middleware' => ['auth', 'role:Admin']], function () {
 Route::group(['middleware' => ['auth', 'role:Peminjam']], function () {
     Route::post('review/{book:id}', [HomeController::class, 'store'])->name('review.store');
     Route::get('/collections', [UserCollectionController::class, 'index'])->name('collections.index');
+    Route::post('/collection/{book:id}', [UserCollectionController::class, 'store'])->name('collections.store');
 });
 
 require __DIR__ . '/auth.php';
