@@ -57,16 +57,16 @@
                         </button>
                         <!-- Dropdown menu -->
                         <div id="dropdownNavbar"
-                             class="z-[99] hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
+                             class="z-[99] hidden font-normal bg-[#879EA6] divide-y divide-gray-100 rounded-lg shadow w-44">
                             <ul class="py-2 text-sm text-gray-700 font-bold"
                                 aria-labelledby="dropdownLargeButton">
                                 <li>
                                     <a href="#"
-                                       class="block px-4 py-2 hover:bg-gray-100">Peminjaman</a>
+                                       class="block px-4 py-2 text-white hover:text-[#00065C] ease-in-out transition-all duration-150">Peminjaman</a>
                                 </li>
                                 <li>
                                     <a href="#"
-                                       class="block px-4 py-2 hover:bg-gray-100">Pembayaran Denda</a>
+                                       class="block px-4 py-2 text-white hover:text-[#00065C] ease-in-out transition-all duration-150">Pembayaran Denda</a>
                                 </li>
                             </ul>
                         </div>
