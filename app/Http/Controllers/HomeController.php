@@ -22,9 +22,17 @@ class HomeController extends Controller
 
     public function show(Book $book)
     {
-        $book->load('category')->load('reviews');
+        $book->load('category');
+        $rating = 0;
 
-        return view('home.show', compact('book'));
+        foreach ($book->reviews as $review) {
+            $rating += $review->rating;
+        }
+        count($book->reviews) > 0 ? $rating /= count($book->reviews) : $rating = 0;
+
+        $reviews = BookReview::where('book_id', $book->id)->latest()->get();
+
+        return view('home.show', compact('book', 'rating', 'reviews'));
     }
 
     public function store(Request $request, Book $book)
