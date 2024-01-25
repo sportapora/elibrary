@@ -3,6 +3,7 @@
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactUsController;
+use App\Http\Controllers\FinePaymentController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReservationController;
@@ -47,6 +48,7 @@ Route::group(['middleware' => ['auth', 'role:Peminjam']], function () {
     Route::get('/collections', [UserCollectionController::class, 'index'])->name('collections.index');
     Route::post('/collection/{book:id}', [UserCollectionController::class, 'store'])->name('collections.store');
     Route::get('/reservations', [ReservationController::class, 'index'])->name('reservations.index');
+    Route::get('/pembayaran-denda', [FinePaymentController::class, 'index'])->name('fine-payment.index');
 });
 
 require __DIR__ . '/auth.php';

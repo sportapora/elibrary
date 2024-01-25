@@ -65,8 +65,8 @@
                                        class="block px-4 py-2 {{request()->routeIs('reservations.*') ? 'text-[#00065C]' : 'text-white'}} hover:text-[#00065C] ease-in-out transition-all duration-150">Peminjaman</a>
                                 </li>
                                 <li>
-                                    <a href="#"
-                                       class="block px-4 py-2 text-white hover:text-[#00065C] ease-in-out transition-all duration-150">Pembayaran Denda</a>
+                                    <a href="{{route('fine-payment.index')}}"
+                                       class="block px-4 py-2 {{request()->routeIs('fine-payment.*') ? 'text-[#00065C]' : 'text-white'}} hover:text-[#00065C] ease-in-out transition-all duration-150">Pembayaran Denda</a>
                                 </li>
                             </ul>
                         </div>
