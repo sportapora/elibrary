@@ -3,7 +3,7 @@
 
     <div class="flex flex-col lg:flex-row gap-20 justify-center items-center">
         <img src="{{asset('img/logo_without_text.png')}}" class="w-auto" alt="Balen">
-        <div class="bg-[#879EA6] rounded-2xl p-10">
+        <div class="bg-[#50646A] rounded-2xl p-10">
             <h1 class="text-4xl text-primary text-center mb-6">Admin Registration</h1>
 
             <form method="POST" action="{{ route('admin.register.store') }}">
